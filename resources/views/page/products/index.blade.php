@@ -2,29 +2,26 @@
 @section('content')
 <h1>Products</h1>
 <br />
-<table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
 
-    </tr>
-</thead>
-<tbody>
     
     @if($products)
             @foreach($products as $item)
-                <tr>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->category->name}}</td>
-                    <td>{{$item->price}}</td>
-                    
-                    
-                </tr>
+                    <div class="col-md-3 portfolio-item" style="border-bottom:1px solid #FFFFFF;">
+                        <h3><a href="">{{$item->name}}</a></h3>
+                        <center>
+                            <a href="">
+                                <img class="img-responsive" src="" alt="">
+                            </a>
+                        </center>	
+                        <div>
+                            <h4>€ {{$item->price}}</h4>
+                        </div>   
+                            <p>{{$item->description}}</p>
+                    </div>
+
             @endforeach
         
         @endif
-        </tbody>
-</table>
+
 @stop
+

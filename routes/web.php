@@ -11,6 +11,16 @@
 |
 */
 
+//Page routes
+
+Route::Get('/', function(){
+    return view('page.index');
+});
+
+Route::resource('/products', 'ProductsController');
+
+//Admin routes
+
 Route::Get('/admin', function(){
     return view('admin.index');
 });

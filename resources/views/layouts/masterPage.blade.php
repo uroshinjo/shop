@@ -56,6 +56,10 @@
                     <li>
                         <a href="">Basket</a>
                     </li>
+                    <li>
+                        <a href="{{ url('/admin') }}">Admin</a>
+                    </li>
+                    <li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

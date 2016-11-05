@@ -15,6 +15,7 @@ class CreateCategoryFeaturesTable extends Migration
     {
         Schema::create('category_features', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('values');
             $table->integer('category_id')->index();
             $table->timestamps();

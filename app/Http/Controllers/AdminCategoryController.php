@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\CategoryFeatures;
 
 class AdminCategoryController extends Controller
 {
@@ -27,6 +28,18 @@ class AdminCategoryController extends Controller
     {
         return view('admin.category.create');
     }
+
+    public function addFeature(Request $request){
+        $newFeature = new CategoryFeatures;
+        $newFeature->values = $request->values;
+        $newFeature->name = $request->name;
+        $newFeature->category_id = $request->categoryid;
+        $newFeature->save();
+        $category = Category::findOrFail($request->categoryid);
+        return view('admin.category.edit', compact('category'));
+        //return view('admin.category.index', compact('category'));
+    }
+
 
     /**
      * Store a newly created resource in storage.

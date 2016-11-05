@@ -32,5 +32,5 @@ Route::Get('/admin', function(){
 });
 
 Route::resource('/admin/product', 'AdminProductController');
-
+Route::post('admin/category/edit', 'AdminCategoryController@addFeature');
 Route::resource('/admin/category', 'AdminCategoryController');

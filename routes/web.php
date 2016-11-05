@@ -34,3 +34,5 @@ Route::Get('/admin', function(){
 Route::resource('/admin/product', 'AdminProductController');
 
 Route::resource('/admin/category', 'AdminCategoryController');
+
+Route::resource('/admin/shopSettings', 'ShopSettingsController');

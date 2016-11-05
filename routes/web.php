@@ -31,6 +31,11 @@ Route::Get('/admin', function(){
     return view('admin.index');
 });
 
+
+
+
 Route::resource('/admin/product', 'AdminProductController');
 Route::post('admin/category/edit', 'AdminCategoryController@addFeature');
 Route::resource('/admin/category', 'AdminCategoryController');
+
+Route::resource('/admin/shopSettings', 'ShopSettingsController');

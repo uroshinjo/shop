@@ -45,16 +45,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li>
                         <a href="{{ url('/products') }}">Products</a>
                     </li>
                     <li>
-                        <a href="">About</a>
+                        <a href="{{ url('/about') }}">About</a>
                     </li>
                     <li>
-                        <a href="">Basket</a>
+                        <a href="{{ url('/basket') }}">Basket</a>
                     </li>
                     <li>
                         <a href="{{ url('/admin') }}">Admin</a>

@@ -17,7 +17,13 @@ Route::Get('/', function(){
     return view('page.index');
 });
 
+Route::resource('/', 'HomeController');
+
 Route::resource('/products', 'ProductsController');
+
+Route::resource('/about', 'AboutController');
+
+Route::resource('/basket', 'BasketController');
 
 //Admin routes
 

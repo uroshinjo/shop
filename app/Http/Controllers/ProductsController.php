@@ -48,7 +48,11 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $simillarProducts = Product::all()
+                ->where('category_id', $product->category_id)
+                ->take(4);
+        return view('page.products.show', compact('product', 'simillarProducts'));
     }
 
     /**

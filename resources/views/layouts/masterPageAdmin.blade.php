@@ -53,6 +53,9 @@
                     <li>
                         <a href="{{ url('admin/category') }}">Category</a>
                     </li>
+                    <li>
+                        <a target="_blank" href="{{ url('/') }}">View page</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -17,7 +17,7 @@ class AdminCategoryController extends Controller
         $category = Category::all();
         return view('admin.category.index', compact('category'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +27,7 @@ class AdminCategoryController extends Controller
     {
         return view('admin.category.create');
     }
-
+    
     public function addFeature(Request $request){
         $newFeature = new CategoryFeatures;
         $newFeature->values = $request->values;
@@ -40,8 +40,8 @@ class AdminCategoryController extends Controller
         return view('admin.category.edit', compact('category','categoryFeatures'));
         //return view('admin.category.index', compact('category'));
     }
-
-
+    
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -57,7 +57,7 @@ class AdminCategoryController extends Controller
         $category = Category::all();
         return view('admin.category.index', compact('category'));
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -68,7 +68,7 @@ class AdminCategoryController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,7 +81,7 @@ class AdminCategoryController extends Controller
         $category = Category::findOrFail($id);
         return view('admin.category.edit', compact('category','categoryFeatures'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -98,9 +98,9 @@ class AdminCategoryController extends Controller
         
         $category = Category::all();
         return view('admin.category.index', compact('category'));
-
+        
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *

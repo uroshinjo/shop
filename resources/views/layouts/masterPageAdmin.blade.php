@@ -57,8 +57,12 @@
                         <a href="{{ url('admin/shopSettings') }}">Shop settings</a>
                     </li>
                     <li>
+                        <a href="{{ url('/admin/theme') }}">Theme settings</a>
+                    </li>
+                    <li>
                         <a target="_blank" href="{{ url('/') }}">View page</a>
                     </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

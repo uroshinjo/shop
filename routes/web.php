@@ -39,3 +39,5 @@ Route::post('admin/category/edit', 'AdminCategoryController@addFeature');
 Route::resource('/admin/category', 'AdminCategoryController');
 
 Route::resource('/admin/shopSettings', 'ShopSettingsController');
+
+Route::resource('/admin/theme', 'ThemeController');

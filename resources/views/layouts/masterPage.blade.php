@@ -26,6 +26,7 @@
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
     </style>
+    
 </head>
 <body>
         <!-- Navigation -->
@@ -68,6 +69,7 @@
     </nav>
 
     <!-- Page Content -->
+    @include('layouts.themeView') 
     <div class="container">
 
         

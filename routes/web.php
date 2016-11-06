@@ -40,4 +40,6 @@ Route::resource('/admin/category', 'AdminCategoryController');
 
 Route::resource('/admin/shopSettings', 'ShopSettingsController');
 
+
+Route::patch('admin/theme/{id}', 'ThemeController@setActiveTheme');
 Route::resource('/admin/theme', 'ThemeController');

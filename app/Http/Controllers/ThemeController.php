@@ -38,10 +38,25 @@ class ThemeController extends Controller
     {
         $newTheme = new Theme;
         $newTheme->name = $request->name;
+        $newTheme->backgroundColor = $request->pageBackground;
+        
+        $newTheme->textColor = $request->pageText;
+        $newTheme->menuColor = $request->menuBackground;
+        $newTheme->menuTextColor = $request->menuText;
         $newTheme->save();
         
         $themes = Theme::all();
         return view('admin.theme.index', compact('themes'));
+    }
+    
+    public function setActiveTheme(Request $request, $id){
+        Theme::query()->update(['active' => 0]);
+        $theme = Theme::findOrFail($id);
+        $theme->active = 1;
+        $theme->save();
+        $themes = Theme::all();
+        return view('admin.theme.index', compact('themes'));
+        
     }
 
     /**
@@ -86,6 +101,10 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $themForDestroy = Theme::findOrFail($id);
+        $themForDestroy->delete();
+        
+        $themes = Theme::all();
+        return view('admin.theme.index', compact('themes'));
     }
 }

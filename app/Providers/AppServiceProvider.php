@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Theme;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.themeView', function ($view) {
+            $themeSettings = Theme::where('active', 1)->get();
+            $view->themeSettings = $themeSettings;
+        });
     }
 
     /**

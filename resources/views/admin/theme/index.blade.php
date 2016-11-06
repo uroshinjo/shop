@@ -22,9 +22,32 @@
             @foreach($themes as $item)
                 <tr>
                     <td>{{$item->name}}</td>
-                    <td>{{$item->active}}</td>
+                    <td>{{$item->active}}</td> 
+                        <td style="width:25px;">    
+
+                                        {!! Form::open(['method'=>'PATCH', 'action'=>['ThemeController@setActiveTheme', $item->id]]) !!}
+                                        {!! Form::submit('Set', ['class'=>'btn btn-warning']) !!}   
+                                        {!! Form::close() !!}
+
+                    </td>
                     <td style="width:25px;">    
-                        actions
+                        <a class="deleteBtn" onclick="showConfirmDeletePopup({{$item->id}})"></a>
+
+                        <div class="popUpConfirm" id="confirmPopup_{{$item->id}}">
+                            <div class="warningQuestion">Are you sure you want to delete this item?</div>
+                            <table style="float: right; margin-top:30px;">
+                                <tr>
+                                    <td>
+                                        {!! Form::open(['method'=>'DELETE', 'action'=>['ThemeController@destroy', $item->id]]) !!}
+                                        {!! Form::submit('Delete', ['class'=>'btn btn-warning']) !!}   
+                                        {!! Form::close() !!}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-link" onclick="hideConfirmDeletePopup({{$item->id}})">Cancel</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     
                     </td>
                 </tr>

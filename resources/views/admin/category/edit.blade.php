@@ -59,7 +59,8 @@
             <tr>
                 <td>{{$one->name}}</td>
                 <td>
-                    {{$one->values}}
+                    {{ $am = $one->values}}
+                    <!-- dej noter json decode, ki pa potrebuje string -->
                 </td>
             </tr>
             @endforeach

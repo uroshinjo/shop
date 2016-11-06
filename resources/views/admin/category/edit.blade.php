@@ -18,9 +18,14 @@
                     
  </div>
 <div class="col-lg-6">
-    <a id="addFeatureButton" class="btn btn-success" onclick="displayAddFetureForm()">Add feature</a>
+    
+   
     <script>
-        var values = "";
+        var features = {
+            value: []
+        };
+        var stevec = 1;
+        
         function displayAddFetureForm(){
             $('#addFeature').show();
             $('#addFeatureButton').hide();
@@ -29,15 +34,39 @@
             $('#addValue').show();
             $('#addValueButton').hide();
         }
-        function addToValuesString(){
+                
+        function addToFeaturesJson(){
+            features.value.push({
+                "id" : stevec++,
+                "valueName" : $('#value').val()
+            });
             
-            values+=$('#value').val();
-            values+=";";
+            var obj = JSON.stringify(features);
+            $('#currentValues').append("<li>"+$('#value').val()+ "</li>");
             $('#value').val("");
-            $('#currentValues').text(values);
-            $('#values').val(values);
+            $('#values').val(obj);
         }
     </script>
+    <h3>Set Features</h3>
+    <table class="table">
+        <tr>
+            <th>Feature Name</th>
+            <th>Values</th>
+        </tr>
+        <tbody>
+            @foreach($categoryFeatures as $one)
+        
+            <tr>
+                <td>{{$one->name}}</td>
+                <td>
+                    {{$one->values}}
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    
+    <a id="addFeatureButton" class="btn btn-success" onclick="displayAddFetureForm()">Add feature</a>
     <div id="addFeature" style="display: none;">
         {!! Form::open(['method'=>'POST', 'action'=>'AdminCategoryController@addFeature']) !!}
         {!! Form::hidden('categoryid', $category->id)!!}
@@ -50,12 +79,11 @@
         <div id="addValue" style="display: none;">
             {!! Form::label('value', 'Value') !!}
             {!! Form::text('value', null, ['class'=>'form-control']) !!}
-            <a id="addToValueListButton" class="btn btn-link" onclick="addToValuesString()">+</a>
+            <a id="addToValueListButton" class="btn btn-link" onclick="addToFeaturesJson()">+</a>
         </div>
-        <span id="currentValues"></span>
+        <ul id="currentValues"></ul>
         <br />
-        <br />
-        <br />
+        
         {!! Form::submit('Add', ['class'=>'btn btn-success']) !!}
 
         {!! Form::close() !!}

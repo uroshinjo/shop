@@ -3,33 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/index.blade.php</file>
             <file>file:/C:/xampp/htdocs/shop/resources/views/admin/category/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/product/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/config/app.php</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/category/create.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/category/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/public/admin/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/product/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Http/Controllers/AdminCategoryController.php</file>
             <file>file:/C:/xampp/htdocs/shop/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/category/edit.blade.php</file>
             <file>file:/C:/xampp/htdocs/shop/app/Http/Controllers/Controller.php</file>
-            <file>file:/C:/xampp/htdocs/shop/public/index.php</file>
-            <file>file:/C:/xampp/htdocs/shop/public/admin/js/popup.js</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/product/create.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/database/migrations/2016_10_31_161015_create_categories_table.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Product.php</file>
-            <file>file:/C:/xampp/htdocs/shop/database/migrations/2016_10_31_163647_create_category_features_table.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Category.php</file>
-            <file>file:/C:/xampp/htdocs/shop/.gitignore</file>
-            <file>file:/C:/xampp/htdocs/shop/app/CategoryFeatures.php</file>
-            <file>file:/C:/xampp/htdocs/shop/database/migrations/2016_10_31_163630_create_products_table.php</file>
-            <file>file:/C:/xampp/htdocs/shop/database/migrations/2016_10_31_163701_create_orders_table.php</file>
-            <file>file:/C:/xampp/htdocs/shop/database/migrations/2016_10_31_163654_create_order_items_table.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Http/Controllers/AdminProductController.php</file>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/layouts/masterPageAdmin.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/.env</file>
-            <file>file:/C:/xampp/htdocs/shop/database/seeds/DatabaseSeeder.php</file>
+            <file>file:/C:/xampp/htdocs/shop/app/Http/Controllers/AdminCategoryController.php</file>
         </group>
     </open-files>
 </project-private>

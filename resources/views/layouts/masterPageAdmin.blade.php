@@ -26,6 +26,13 @@
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
     </style>
+     <!-- Scripts -->
+    <script src="{{ URL::asset('public/js/admin/app.js') }}"></script>
+        <!-- jQuery Version 1.11.1 -->
+    <script src="{{ URL::asset('public/admin/js/jquery.js') }}"></script>
+    <script src="{{ URL::asset('public/admin/js/popup.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src=" {{ URL::asset('public/admin/js/bootstrap.min.js') }} "></script>
 </head>
 <body>
         <!-- Navigation -->
@@ -80,13 +87,6 @@
         
 
     <div id="popUpBackground"></div>
-    <!-- Scripts -->
-    <script src="{{ URL::asset('public/js/admin/app.js') }}"></script>
-        <!-- jQuery Version 1.11.1 -->
-    <script src="{{ URL::asset('public/admin/js/jquery.js') }}"></script>
-    <script src="{{ URL::asset('public/admin/js/popup.js') }}"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src=" {{ URL::asset('public/admin/js/bootstrap.min.js') }} "></script>
-  
+   
 </body>
 </html>

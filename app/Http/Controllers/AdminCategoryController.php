@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\CategoryFeatures;
-
+use XmlParser;
 class AdminCategoryController extends Controller
 {
     /**
@@ -35,8 +35,10 @@ class AdminCategoryController extends Controller
         $newFeature->name = $request->name;
         $newFeature->category_id = $request->categoryid;
         $newFeature->save();
+        
         $category = Category::findOrFail($request->categoryid);
-        return view('admin.category.edit', compact('category'));
+        $categoryFeatures = CategoryFeatures::where('category_id', $category->id)->get();
+        return view('admin.category.edit', compact('category','categoryFeatures'));
         //return view('admin.category.index', compact('category'));
     }
 
@@ -76,8 +78,9 @@ class AdminCategoryController extends Controller
      */
     public function edit($id)
     {
+        $categoryFeatures = CategoryFeatures::where('category_id', $id)->get();
         $category = Category::findOrFail($id);
-        return view('admin.category.edit', compact('category'));
+        return view('admin.category.edit', compact('category','categoryFeatures'));
     }
 
     /**

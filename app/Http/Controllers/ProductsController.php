@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\CategoryFeatures;
 
 class ProductsController extends Controller
 {
@@ -49,10 +50,27 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
+        $productFeatures = CategoryFeatures::where('category_id', $product->category_id)->get();
+        
+        foreach ($productFeatures as $item){ 
+            $arrayValues = array();
+            
+            
+            $obj = json_decode($item->values);
+            $arrayValues = array();
+            foreach ($obj->{'value'} as $value){
+                $arrayValues[$value->id] = $value->valueName;
+            } 
+           
+            $item['arrayValues'] = $arrayValues;
+        }
+        
+        
+
         $simillarProducts = Product::all()
                 ->where('category_id', $product->category_id)
                 ->take(4);
-        return view('page.products.show', compact('product', 'simillarProducts'));
+        return view('page.products.show', compact('product', 'simillarProducts', 'productFeatures'));
     }
 
     /**

@@ -2,7 +2,14 @@
 @section('content')
 <br />
 
-
+<style>
+    .inputPadding{
+        padding: 5px;
+        margin-left:15px;
+        margin-top:5px;
+        min-width: 150px;
+    }
+</style>
 <div class="row">
      <div class="col-md-4 portfolio-item" style="padding-bottom: 100px;">
          <img class="img-responsive" src="data:image/png;base64,{{base64_encode($product->image)}}" alt="">
@@ -11,7 +18,20 @@
         <h3>{{$product->name}}</h3>
         <h4>€ {{$product->price}}</h4>
         
-        Tukej grejo lastnosti kategorije
+        {!! Form::open(['method'=>'POST', 'action'=>'BasketController@create']) !!}
+        <table>
+        @if($productFeatures)
+            @foreach($productFeatures as $item)
+            <tr>
+                <td>{{$item->name}}     </td>         
+                <td>{!! Form::select($item->name, $item->arrayValues, null, ['placeholder' => 'Select', 'class' => 'inputPadding']) !!}</td>
+            </tr>
+            @endforeach      
+        @endif
+        </table>
+
+        
+        {!! Form::close() !!}
         <br />
         <a href="" class="btn btn-success">Add to basket</a>
     </div>

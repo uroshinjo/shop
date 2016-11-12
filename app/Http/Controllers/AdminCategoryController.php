@@ -37,6 +37,14 @@ class AdminCategoryController extends Controller
         
         $category = Category::findOrFail($request->categoryid);
         $categoryFeatures = CategoryFeatures::where('category_id', $category->id)->get();
+        foreach ($categoryFeatures as $item){ 
+            $arrayValues = array();
+            $obj = json_decode($item->values);
+            foreach ($obj->{'value'} as $value){
+                $arrayValues[$value->id] = $value->valueName;
+            }
+            $item['arrayValues'] = $arrayValues;
+        }
         return view('admin.category.edit', compact('category','categoryFeatures'));
         //return view('admin.category.index', compact('category'));
     }
@@ -78,6 +86,16 @@ class AdminCategoryController extends Controller
     public function edit($id)
     {
         $categoryFeatures = CategoryFeatures::where('category_id', $id)->get();
+        
+        foreach ($categoryFeatures as $item){ 
+            $arrayValues = array();
+            $obj = json_decode($item->values);
+            foreach ($obj->{'value'} as $value){
+                $arrayValues[$value->id] = $value->valueName;
+            }
+            $item['arrayValues'] = $arrayValues;
+        }
+        
         $category = Category::findOrFail($id);
         return view('admin.category.edit', compact('category','categoryFeatures'));
     }

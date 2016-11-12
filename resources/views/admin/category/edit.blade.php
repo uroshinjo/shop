@@ -37,7 +37,7 @@
                 
         function addToFeaturesJson(){
             features.value.push({
-                "id" : stevec++,
+                "id" : String(stevec++),
                 "valueName" : $('#value').val()
             });
             
@@ -54,16 +54,21 @@
             <th>Values</th>
         </tr>
         <tbody>
-            @foreach($categoryFeatures as $one)
-        
-            <tr>
-                <td>{{$one->name}}</td>
-                <td>
-                    {{ $am = $one->values}}
-                    <!-- dej noter json decode, ki pa potrebuje string -->
-                </td>
-            </tr>
-            @endforeach
+            @if($categoryFeatures)
+                @foreach($categoryFeatures as $item)
+                <tr>
+                    <td>{{ $item->name }}</td>
+                    <td>
+                        <ul type="circle">
+                        @foreach($item->arrayValues as $one)
+                            {{ $one}}
+                        @endforeach 
+                        </ul>
+                        
+                    </td>
+                </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
     

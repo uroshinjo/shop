@@ -42,7 +42,9 @@ class AdminProductController extends Controller
     public function store(ProductCreateRequest $request)
     {
         $newProduct = new Product;
-        $newProduct->image = file_get_contents($request->image);
+        if($request->image){
+            $newProduct->image = file_get_contents($request->image);
+        }
         $newProduct->name = $request->name;
         $newProduct->description = $request->description;
         $newProduct->price = $request->price;

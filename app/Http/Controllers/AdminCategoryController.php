@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 use App\CategoryFeatures;
 use App\Http\Requests\CategoryCreateRequest;
 use App\Http\Requests\CategoryEditRequest;
@@ -18,7 +19,8 @@ class AdminCategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        $products = Product::all();
+        return view('admin.category.index', compact('category', 'products'));
     }
     
     /**
@@ -134,6 +136,6 @@ class AdminCategoryController extends Controller
         $category->delete();
         
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        return view('admin.category.index', compact('category'));        
     }
 }

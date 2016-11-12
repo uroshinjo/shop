@@ -13,6 +13,7 @@
     <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>products</th>
         <th colspan="2">Actions</th>
     </tr>
 </thead>
@@ -23,13 +24,18 @@
                 <tr>
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
+                    <td>
+                        @foreach($products as $product)
+                        {{$product->name}}
+                        @endforeach
+                    </td>
                     <td style="width:25px;">
                         <a class="editBtn" href="{{route('category.edit', $item->id)}}"></a>
                         
                     </td>
-                    <td style="width:25px;">    
+                    <td style="width:25px;"> 
                         <a class="deleteBtn" onclick="showConfirmDeletePopup({{$item->id}})"></a>
-
+                        
                         <div class="popUpConfirm" id="confirmPopup_{{$item->id}}">
                             <div class="warningQuestion">Are you sure you want to delete this item?</div>
                             <table style="float: right; margin-top:30px;">
@@ -45,7 +51,7 @@
                                 </tr>
                             </table>
                         </div>
-                    
+                        
                     </td>
                 </tr>
             @endforeach

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductEditRequest;
 
 class AdminProductController extends Controller
 {
@@ -37,7 +39,7 @@ class AdminProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
         $newProduct = new Product;
         $newProduct->image = file_get_contents($request->image);
@@ -82,7 +84,7 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductEditRequest $request, $id)
     {
         $product = Product::findOrFail($id);
         $product->name = $request->name;

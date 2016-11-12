@@ -5,7 +5,7 @@
 <br />
     {!! Form::open(['method'=>'POST', 'action'=>'ThemeController@store']) !!}
     {!! Form::label('name', 'Name') !!}
-    {!! Form::text('name', null, ['class'=>'form-control']) !!}
+    {!! Form::text('name', old('name'), ['class'=>'form-control']) !!}
     
     <br />{!! Form::label('pageBackground', 'Background color') !!}<br />
     <div style='background-color:#FF0000; display:inline-block; width:15px; height:15px;'></div>
@@ -35,5 +35,14 @@
     {!! Form::submit('Add', ['class'=>'btn btn-success']) !!}
     
     {!! Form::close() !!}
-
+    
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 @stop

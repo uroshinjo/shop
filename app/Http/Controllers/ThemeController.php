@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Theme;
+use App\Http\Requests\ThemeCreateRequest;
 
 class ThemeController extends Controller
 {
@@ -34,7 +35,7 @@ class ThemeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ThemeCreateRequest $request)
     {
         $newTheme = new Theme;
         $newTheme->name = $request->name;

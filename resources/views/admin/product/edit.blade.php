@@ -1,7 +1,7 @@
 @extends('layouts.masterPageAdmin')
 @section('content')
 
-<span class="pageTitle">Edit category</span>
+<span class="pageTitle">Edit Product</span>
 <br />
     {!! Form::open(['method'=>'PATCH', 'action'=>['AdminProductController@update', $product->id]]) !!}
     
@@ -21,7 +21,15 @@
     
     {!! Form::close() !!}
                     
- 
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
         
 

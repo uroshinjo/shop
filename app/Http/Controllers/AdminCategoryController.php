@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\CategoryFeatures;
+use App\Http\Requests\CategoryCreateRequest;
+use App\Http\Requests\CategoryEditRequest;
+
 class AdminCategoryController extends Controller
 {
     /**
@@ -56,7 +59,7 @@ class AdminCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryCreateRequest $request)
     {       
         $newCategory = new Category;
         $newCategory->name = $request->name;
@@ -107,7 +110,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryEditRequest $request, $id)
     {
         $category = Category::findOrFail($id);
         $category->name = $request->name;

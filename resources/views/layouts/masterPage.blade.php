@@ -41,7 +41,9 @@
 	@yield('content')	
 
     </div>
-        
+    <div class="container">
+        @include('layouts.footerView') 
+    </div>    
 
     <div id="popUpBackground"></div>
     <!-- Scripts -->

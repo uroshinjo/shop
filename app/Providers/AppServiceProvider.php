@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Theme;
+use App\ShopSettings;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.themeView', function ($view) {
             $themeSettings = Theme::where('active', 1)->get();
             $view->themeSettings = $themeSettings;
+        });
+        
+        view()->composer('layouts.menuView', function ($view) {
+            $shopSettings = ShopSettings::all();
+            $view->shopSettings = $shopSettings;
         });
     }
 
